@@ -328,8 +328,8 @@ public class LoanIT {
         GameDto gameDto = new GameDto();
         gameDto.setId(5L);
 
-        dto.setDate_loan(sqlDateToday);
-        dto.setDate_return(sqlDateTomorrow);
+        dto.setDateLoan(sqlDateToday);
+        dto.setDateReturn(sqlDateTomorrow);
         dto.setClient(clientDto);
         dto.setGame(gameDto);
 
@@ -365,8 +365,8 @@ public class LoanIT {
         GameDto gameDto = new GameDto();
         gameDto.setId(5L);
 
-        dto.setDate_loan(sqlDateToday);
-        dto.setDate_return(sqlDateYesterday);
+        dto.setDateLoan(sqlDateToday);
+        dto.setDateReturn(sqlDateYesterday);
         dto.setClient(clientDto);
         dto.setGame(gameDto);
 
@@ -390,8 +390,8 @@ public class LoanIT {
         GameDto gameDto = new GameDto();
         gameDto.setId(5L);
 
-        dto.setDate_loan(sqlDateToday);
-        dto.setDate_return(sqlDateGreaterThan14Days);
+        dto.setDateLoan(sqlDateToday);
+        dto.setDateReturn(sqlDateGreaterThan14Days);
         dto.setClient(clientDto);
         dto.setGame(gameDto);
 
@@ -414,8 +414,8 @@ public class LoanIT {
         GameDto gameDto = new GameDto();
         gameDto.setId(1L);
 
-        dto.setDate_loan(sqlDateLoan);
-        dto.setDate_return(sqlDateReturn);
+        dto.setDateLoan(sqlDateLoan);
+        dto.setDateReturn(sqlDateReturn);
         dto.setClient(clientDto);
         dto.setGame(gameDto);
 
@@ -438,8 +438,8 @@ public class LoanIT {
         GameDto gameDto = new GameDto();
         gameDto.setId(5L);
 
-        dto.setDate_loan(sqlDateLoan);
-        dto.setDate_return(sqlDateReturn);
+        dto.setDateLoan(sqlDateLoan);
+        dto.setDateReturn(sqlDateReturn);
         dto.setClient(clientDto);
         dto.setGame(gameDto);
 

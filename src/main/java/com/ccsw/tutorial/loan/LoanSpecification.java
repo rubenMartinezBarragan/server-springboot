@@ -15,53 +15,53 @@ import jakarta.persistence.criteria.Root;
 
 public class LoanSpecification implements Specification<Loan> {
 
-    private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 1L;
 
-    private final SearchCriteria criteria;
+	private final SearchCriteria criteria;
 
-    public LoanSpecification(SearchCriteria criteria) {
-        this.criteria = criteria;
-    }
+	public LoanSpecification(SearchCriteria criteria) {
+		this.criteria = criteria;
+	}
 
-    @Override
-    public Predicate toPredicate(Root<Loan> root, CriteriaQuery<?> query, CriteriaBuilder builder) {
-        if (criteria.getOperation().equalsIgnoreCase(":") && criteria.getValue() != null) {
-            Path<String> path = getPath(root);
+	@Override
+	public Predicate toPredicate(Root<Loan> root, CriteriaQuery<?> query, CriteriaBuilder builder) {
+		if (criteria.getOperation().equalsIgnoreCase(":") && criteria.getValue() != null) {
+			Path<String> path = getPath(root);
 
-            if (path.getJavaType() == String.class)
-                return builder.like(path, "%" + criteria.getValue() + "%");
-            else
-                return builder.equal(path, criteria.getValue());
-        }
+			if (path.getJavaType() == String.class)
+				return builder.like(path, "%" + criteria.getValue() + "%");
+			else
+				return builder.equal(path, criteria.getValue());
+		}
 
-        if (criteria.getOperation().equalsIgnoreCase("<:") && criteria.getValue() != null) {
-            Date date = Date.valueOf(criteria.getValue().toString());
-            System.out.println("date = " + date);
+		if (criteria.getOperation().equalsIgnoreCase("<:") && criteria.getValue() != null) {
+			Date date = Date.valueOf(criteria.getValue().toString());
+			System.out.println("date = " + date);
 
-            return builder.lessThanOrEqualTo(root.get("date_loan"), date);
-        }
+			return builder.lessThanOrEqualTo(root.get("dateLoan"), date);
+		}
 
-        if (criteria.getOperation().equalsIgnoreCase(">:") && criteria.getValue() != null) {
-            Date date = Date.valueOf(criteria.getValue().toString());
-            System.out.println("date = " + date);
+		if (criteria.getOperation().equalsIgnoreCase(">:") && criteria.getValue() != null) {
+			Date date = Date.valueOf(criteria.getValue().toString());
+			System.out.println("date = " + date);
 
-            return builder.greaterThanOrEqualTo(root.get("date_return"), date);
-        }
+			return builder.greaterThanOrEqualTo(root.get("dateReturn"), date);
+		}
 
-        return null;
-    }
+		return null;
+	}
 
-    private Path<String> getPath(Root<Loan> root) {
-        String key = criteria.getKey();
-        String[] split = key.split("[.]", 0);
+	private Path<String> getPath(Root<Loan> root) {
+		String key = criteria.getKey();
+		String[] split = key.split("[.]", 0);
 
-        Path<String> expression = root.get(split[0]);
+		Path<String> expression = root.get(split[0]);
 
-        for (int i = 1; i < split.length; i++) {
-            expression = expression.get(split[i]);
-        }
+		for (int i = 1; i < split.length; i++) {
+			expression = expression.get(split[i]);
+		}
 
-        return expression;
-    }
+		return expression;
+	}
 
 }

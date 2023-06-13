@@ -14,8 +14,8 @@ public class LoanDto {
     private Long id;
     private GameDto game;
     private ClientDto client;
-    private Date date_loan;
-    private Date date_return;
+    private Date dateLoan;
+    private Date dateReturn;
 
     /**
      * @return the id
@@ -60,31 +60,31 @@ public class LoanDto {
     }
 
     /**
-     * @return the date_loan
+     * @return the dateLoan
      */
-    public Date getDate_loan() {
-        return date_loan;
+    public Date getDateLoan() {
+        return dateLoan;
     }
 
     /**
-     * @param date_loan the date_loan to set
+     * @param dateLoan the dateLoan to set
      */
-    public void setDate_loan(Date date_loan) {
-        this.date_loan = date_loan;
+    public void setDateLoan(Date dateLoan) {
+        this.dateLoan = dateLoan;
     }
 
     /**
-     * @return the date_return
+     * @return the dateReturn
      */
-    public Date getDate_return() {
-        return date_return;
+    public Date getDateReturn() {
+        return dateReturn;
     }
 
     /**
-     * @param date_return the date_return to set
+     * @param dateReturn the dateReturn to set
      */
-    public void setDate_return(Date date_return) {
-        this.date_return = date_return;
+    public void setDateReturn(Date dateReturn) {
+        this.dateReturn = dateReturn;
     }
 
 }

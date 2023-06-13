@@ -22,93 +22,93 @@ import jakarta.persistence.Table;
 @Table(name = "loan")
 public class Loan {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", nullable = false)
-    private Long id;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id", nullable = false)
+	private Long id;
 
-    @ManyToOne
-    @JoinColumn(name = "game_id", nullable = false)
-    private Game game;
+	@ManyToOne
+	@JoinColumn(name = "game_id", nullable = false)
+	private Game game;
 
-    @ManyToOne
-    @JoinColumn(name = "client_id", nullable = false)
-    private Client client;
+	@ManyToOne
+	@JoinColumn(name = "client_id", nullable = false)
+	private Client client;
 
-    @Column(name = "date_loan", nullable = false)
-    private Date date_loan;
+	@Column(name = "date_loan", nullable = false)
+	private Date dateLoan;
 
-    @Column(name = "date_return", nullable = false)
-    private Date date_return;
+	@Column(name = "date_return", nullable = false)
+	private Date dateReturn;
 
-    /**
-     * @return the id
-     */
-    public Long getId() {
-        return id;
-    }
+	/**
+	 * @return the id
+	 */
+	public Long getId() {
+		return id;
+	}
 
-    /**
-     * @param id the id to set
-     */
-    public void setId(Long id) {
-        this.id = id;
-    }
+	/**
+	 * @param id the id to set
+	 */
+	public void setId(Long id) {
+		this.id = id;
+	}
 
-    /**
-     * @return the game
-     */
-    public Game getGame() {
-        return game;
-    }
+	/**
+	 * @return the game
+	 */
+	public Game getGame() {
+		return game;
+	}
 
-    /**
-     * @param game the game to set
-     */
-    public void setGame(Game game) {
-        this.game = game;
-    }
+	/**
+	 * @param game the game to set
+	 */
+	public void setGame(Game game) {
+		this.game = game;
+	}
 
-    /**
-     * @return the client
-     */
-    public Client getClient() {
-        return client;
-    }
+	/**
+	 * @return the client
+	 */
+	public Client getClient() {
+		return client;
+	}
 
-    /**
-     * @param client the client to set
-     */
-    public void setClient(Client client) {
-        this.client = client;
-    }
+	/**
+	 * @param client the client to set
+	 */
+	public void setClient(Client client) {
+		this.client = client;
+	}
 
-    /**
-     * @return the date_loan
-     */
-    public Date getDate_loan() {
-        return date_loan;
-    }
+	/**
+	 * @return the dateLoan
+	 */
+	public Date getDateLoan() {
+		return dateLoan;
+	}
 
-    /**
-     * @param date_loan the date_loan to set
-     */
-    public void setDate_loan(Date date_loan) {
-        this.date_loan = date_loan;
-    }
+	/**
+	 * @param dateLoan the dateLoan to set
+	 */
+	public void setDateLoan(Date dateLoan) {
+		this.dateLoan = dateLoan;
+	}
 
-    /**
-     * @return the date_return
-     */
-    public Date getDate_return() {
-        return date_return;
-    }
+	/**
+	 * @return the dateReturn
+	 */
+	public Date getDateReturn() {
+		return dateReturn;
+	}
 
-    /**
-     * @param date_return the date_return to set
-     */
-    public void setDate_return(Date date_return) {
-        this.date_return = date_return;
-    }
+	/**
+	 * @param dateReturn the dateReturn to set
+	 */
+	public void setDateReturn(Date dateReturn) {
+		this.dateReturn = dateReturn;
+	}
 
 }
