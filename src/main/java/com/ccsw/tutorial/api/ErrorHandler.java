@@ -9,6 +9,7 @@ import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
 import com.ccsw.tutorial.exception.ApplicationError;
+import com.ccsw.tutorial.exception.ClienteNoExisteException;
 import com.ccsw.tutorial.exception.DosClientesDistintosException;
 import com.ccsw.tutorial.exception.FinAnteriorInicioException;
 import com.ccsw.tutorial.exception.PeriodoPrestamoMaximoException;
@@ -45,6 +46,16 @@ public class ErrorHandler extends ResponseEntityExceptionHandler {
 		error.setMessage(exception.getMessage());
 
 		return new ResponseEntity<>(error, HttpStatus.NOT_FOUND);
+	}
+
+	@ExceptionHandler(ClienteNoExisteException.class)
+	public ResponseEntity<ApplicationError> handlerCustomerClienteNoExisteException(ClienteNoExisteException exception,
+			WebRequest webRequest) {
+		ApplicationError error = new ApplicationError();
+		error.setCode(405);
+		error.setMessage(exception.getMessage());
+
+		return new ResponseEntity<>(error, HttpStatus.METHOD_NOT_ALLOWED);
 	}
 
 	@ExceptionHandler(PrestadosDosJuegosException.class)
